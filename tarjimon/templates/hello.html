@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/semantic-ui/semantic.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+   <div class="ui header segment">
+    <div class="ui container">
+        <h1 class="ui header"> Birinchi Web Dasturim</h1>
+        <div class="ui divider"></div>
+        <p>Tezlik Qulaylik Bepul tarjimon</p>
+    </div>
+
+   </div>
+
+   <div class="ui container">
+        <div class="ui placeholder segment">
+            <div class="ui icon header">
+                Ingilizcha-O'zbekcha,O'zbekcha-Ingilizcha
+            </div>
+            <div class="inline" style="width:90%;">
+                <div class="ui massive form search">
+                <form method="GET" action="" class="ui icon input" style="width:100%;">
+                    <input name="q" value="{{q}}" class="prompt" type="text" placeholder="So'zni kiriting..." />
+                    <i class="search link icon"></i>
+                </form>
+            </div>
+           </div>
+        </div>
+        <div class="ui plied segment">
+            <h4 class="ui header">natija</h4>
+            <table class="ui called large olive table">
+                <thead>
+                    <tr>
+                        <th><i class="uzbekistan flag"></i> O'zbekcha</th>
+                        <th><i class="united kingdom flag"></i> Ingilizcha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if natija %}
+                        {% for tarjima in natija %}
+                        <tr>
+                            {% if langid %}
+                                <td>{{ tarjima.gettranslate }}</td>
+                                <td>{{ tarjima.name }}</td>
+                            {% else %}
+                                <td>{{ tarjima.name }}</td>
+                                <td>{{ tarjima.gettranslate }}</td>
+                            {% endif %}
+                            
+                        </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer-dark">
+        <footer>
+            <div class="container">      
+                    <!-- <div class="col-md-6 item text"> -->
+                        <h3 class="copyright">Bu loyhani <b>Botir Ziyatov</b> video kursida ko'rib tayyorladim </h3>
+                    <!-- </div> -->
+                    <div class="col item social"><a href="https://www.facebook.com/ziyodullodev"><i class="icon ion-social-facebook"></i></a><a href="https://telegram.me/aliyev_3137"><i class="bi bi-telegram"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z"/>
+                      </svg></i></a><a href="https://github.com/ziyodullodev/"><i class="icon ion-social-github"></i></a><a href="https://www.instagram.com/ziyodullo_20_01/"><i class="icon ion-social-instagram"></i></a><a href="https://www.linkedin.com/in/ziyodullo/"><i class="icon ion-social-linkedin"></i></a></div>
+                
+                <p class="copyright">Yaratildi. © 2021 25-December</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -11,4 +11,4 @@ def index(request):
             context = {'q':soz, 'natija':natija, 'langid':1}
     else:
         context = {'natija':None}
-    return render(request, 'hello.html', context=context)
+    return render(request, 'index.html', context=context)
